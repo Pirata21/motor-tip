@@ -1,0 +1,177 @@
+.span12 .form-horizontal { 
+	margin: 0 auto;
+	width: 450px;
+	padding: 10px;
+	border: solid 1px #dbdbdb;
+	border-radius: 10px;
+	 box-shadow: 3px 2px 9px #888;
+	 position: absolute;
+	 left: 50%;
+	 top: 50%;
+	 margin-top: -180px;
+	 margin-left: -225px;
+}
+
+.header.status h1 a{
+	 background: url("../img/logo.png") repeat scroll 0 0 transparent;
+    float: left;
+    height: 102px;
+    margin: 0;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 222px;
+}
+
+.header.status .welcome .top, .header.status .welcome .bottom {
+	float: right;
+	clear: right;
+	font-size: 12px;
+	
+}
+
+.header.status .welcome .bottom {
+    margin: 59px 0 0;
+
+}
+
+.hero-unit.detail, .hero-unit.credits {
+	padding: 10px;
+	margin: 10px 0 13px;
+}
+
+
+.hero-unit.credits, .explain {
+    float: left;
+    width: 45%;
+    position: relative;
+}
+
+.hero-unit.credits .loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #fff url('../img/rueda.gif') 50px center no-repeat;
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	opacity: 0.6;
+	display: none;
+}
+
+.explain {
+	margin: 10px 0 13px 2%;
+}
+
+
+.hero-unit.detail .col {
+	width: 400px;
+	float: left;
+}
+
+body#gray {
+	background: #f8f8f8;
+}
+.header.status {
+	padding: 15px 0;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 4px;
+	background: #fff;
+}
+.header.status .welcome {
+	overflow: hidden;
+}
+
+.footer {
+	background: #00afe9;
+	height:  150px;
+	border-bottom:  solid 50px #444446;
+	border-top: solid 10px #6f6f71;
+}
+
+.tiptable tbody {
+	font-size: 12px;
+}
+
+.tiptable thead {
+	font-size: 13px;
+	background: #707070;
+	color: #fff;
+}
+.tip-paginator {font-size: 12px;}
+
+.right, .table td.right  {
+	text-align: right;
+}
+
+.login .controls {
+	position: relative;
+}
+
+
+.login .controls .error{
+
+	 left: 230px;
+    padding: 4px 4px 4px 10px;
+    position: absolute;
+    top: 0;
+    width: 137px;
+}
+
+.login .hero-unit h1{
+background: url("../img/logo.png") no-repeat scroll  top center transparent;
+    height: 102px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -99999px;
+    width: 221px;
+    margin: 0 auto;
+}
+
+.login .hero-unit {
+    background-color: #fff;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 30px;
+    padding: 10px 8px;
+    text-align: center;
+}
+
+.login .form-horizontal {
+	 background-color: #EEEEEE;
+}
+
+#error_login {
+	
+    margin: 7px 0 0;
+    padding: 5px 21px;
+}
+
+.pDiv input, .sDiv2 input{
+   border-radius: 3px 3px 3px 3px;
+    color: #555555;
+    font-size: 12px;
+    height: 16px;
+    line-height: 20px;
+    margin-bottom: 9px;
+    padding: 2px;
+	width: auto;
+}
+
+.pDiv select, .sDiv2 select{
+ font-size: 11px;
+    height: 22px;
+    padding: 0 2px;
+    width: auto;
+}
+
+.flexigrid  {
+	margin: 10px 0;
+}
+.flexigrid  table {
+    border-collapse: inherit;
+    border-spacing: 1px;
+}
+
+#gray .container {
+	width: 940px;
+}
