@@ -12,6 +12,7 @@
     <script src="/static/js/jquery-1.8.0.min.js" type="text/javascript" ></script>
     <script src="/static/js/jquery.stepy.min.js" type="text/javascript" ></script>
     <script src="/static/js/jquery.validate.min.js" type="text/javascript" ></script>
+     <link href="/static/css/motor.css" rel="stylesheet" />
     <style type="text/css">
 
 
@@ -33,7 +34,7 @@
 					backLabel:	'Backward',
 					block:		true,
 					errorImage:	true,
-					nextLabel:	'Forward',
+					nextLabel:	'Continuar',
 					titleClick:	true,
 					validate:	true
 				});
@@ -46,134 +47,114 @@
 						'brand':			'required' ,
 						'email':		'email',
 						'model':		'required',
-						'newsletter':	'required',
-						'password':		'required',
-						'bio':			'required',
-						'day':			'required'
+						'name':	'required',
+						'email':		'required',
+						'phone':			'required'
 					}, messages: {
-						'user':			{ maxlength: 'User field should be less than 1!' },
-						'email':		{ email: 	 'Invalid e-mail!' },
-						'model':		{ required:  'model field is required!' },
-						'newsletter':	{ required:  'Newsletter field is required!' },
+						'email':		{ email: 	 'Mail Invalido' },
+						'email':		{ required: 	 'No olvides colocar tu email' },
+						'model':		{ required:  'Cuentanos que modelo buscas!' },
 						'password':		{ required:  'Password field is requerid!' },
-						'bio':			{ required:  'Bio field is required!' },
-						'day':			{ required:  'Day field is requerid!' },
+						'name':			{ required:  'Debes darnos tu nombre!' },
+						'phone':			{ required:  'Cual es tu telefono?!' },
 					}
 				});
 				
         });
     </script>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+   
   </head>
 
   <body>
+  
 
-<div id="custom-demo" class="session">A custom form in a validation style:</div>		
-
-			<form id="custom">
-				<fieldset title="Thread 1">
-					<legend>Que marca y Modelo Buscas</legend>		
-		  <label>Marca</label>
-		   <select name="brand">
+  <div class="medium-box">
+   
+   
+    <div class="inner-white">
+      	<form id="custom" action="/save/" method="post" >
+	   <div class="arrow"></div>
+	  <fieldset title="Paso 1">
+		  <legend>Que marca y Modelo Buscas</legend>		
+		    <div class="left_form">  
+		      <label>*Marca</label>
+		      <select name="brand">
 		  	<option >Alfa Romeo</option>
-     <option >Audi</option>
-     <option >BMW</option>
-     <option >Chrysler</option>
-     <option >Citroen</option>
-     <option >Dacia</option>
-     <option >Daewoo</option>
-     <option >Dodge</option>
-     <option >Fiat</option>
-     <option >Ford</option>
-     <option >Hyundai</option>
-     <option >Isuzu</option>
-     <option >Jeep</option>
-     <option >Land Rover</option>
-     <option >Lexus</option>
-     <option >Mazda</option>
-     <option >Mercedes-Benz</option>
-     <option >Mitsubishi</option>
-     <option >Nissan</option>
-     <option >Opel</option>
-     <option >Peugeot</option>
-     <option >Renault</option>
-     <option >Saab</option>
-     <option >Seat</option>
-     <option >Skoda</option>
-     <option >Subaru</option>
-     <option >Suzuki</option>
-     <option >Toyota</option>
-     <option >Volvo</option>
-     <option >Volkswagen</option>
-     <option >Altceva</option>
+			<option >Audi</option>
+			<option >BMW</option>
+			<option >Chrysler</option>
+			<option >Citroen</option>
+			<option >Dacia</option>
+			<option >Daewoo</option>
+			<option >Dodge</option>
+			<option >Fiat</option>
+			<option >Ford</option>
+			<option >Hyundai</option>
+			<option >Isuzu</option>
+			<option >Jeep</option>
+			<option >Land Rover</option>
+			<option >Lexus</option>
+			<option >Mazda</option>
+			<option >Mercedes-Benz</option>
+			<option >Mitsubishi</option>
+			<option >Nissan</option>
+			<option >Opel</option>
+			<option >Peugeot</option>
+			<option >Renault</option>
+			<option >Saab</option>
+			<option >Seat</option>
+			<option >Skoda</option>
+			<option >Subaru</option>
+			<option >Suzuki</option>
+			<option >Toyota</option>
+			<option >Volvo</option>
+			<option >Volkswagen</option>
+			<option >Altceva</option>
+		      </select>
+		      <br/>
+		      <label>*Modelo</label>
+		      <input type="text" name="model" />
+		      <br/>
+		      <label>*Combustible:</label>
+		      <select name="fuell">
+			    <option value="Nafta">Nafta</option>
+			    <option value="Gasoil">Gasoil</option>
+		      </select><br/>
+		       <label>*A&ntilde;o</label>
+		  <select name="year">
+		  	<option value="1990">1990</option>
+
 		  </select>
-		  <label>Modelo</label>
-		  <input type="text" name="model" />
-		  <label>Combustible:</label>
-<select name="fuell">
-		  	<option value="Nafta">Nafta</option>
-		  	<option value="Gasoil">Gasoil</option>
-		  </select><br/>
-		   <label>Precio</label>
-		  <select name="price">
-		  	<option value="Entre 1000 y 3000">Entre 1000 y 3000</option>
-		  	<option value="Entre 3000 y 5000">Entre 3000 y 5000</option>
-		  	<option value="Entre 5000 y 8000">Entre 5000 y 8000</option>
-		  	<option value="Entre 8000 y 10000">Entre 8000 y 10000</option>
-		  	<option value="Mas de 10000">Mas de 10000</option>
-		  </select>
-		  
+		  </div>
 		  <label>Comentarios</label>
-		  <textarea rows="4" cols="5" type="text" name="comments" ></textarea><br/>
+		  <textarea rows="4" cols="5" type="text" name="comments" ></textarea>
+		</fieldset>
 
+		<fieldset title="Paso 2">
+		  <legend>Como te contactamos?</legend>
+		  <label>*Nombre</label>
+		  <input type="text" name="name" /><br/>
+		  <label>*Telefono</label>
+		  <input type="text" name="phone" /><br/>
+		  <label>*Email</label>
+		  <input type="text" name="email" /><br/>
+		  <label>Cuantos te contactan</label>
+		   <select name="maxBuyers">
+		  	<option value="1">1</option>
+		  	<option value="3">3</option>
+		  	<option value="5">5</option>
 
-				
-
-					<label>E-mail:</label>
-					<input type="text" size="40" name="email" />
-					<input type="checkbox" name="checked" /> Checked?
-
-					<label>Newsletter?</label>
-					<input type="radio" name="newsletter" /> Yep
-					<input type="radio" name="newsletter" /> Nop
-
-					<label>Password:</label>
-					<input type="password" name="password" size="40" />
-				</fieldset>
-
-				<fieldset title="Thread 2">
-					<legend>description two</legend>
-
-					<label>Nick Name:</label>
-					<input type="text" size="30" />
-
-					<label>Bio:</label>
-					<textarea name="bio" rows="5" cols="60"></textarea>
-				</fieldset>
+		  </select>
+			
+		</fieldset>
 	
-				<fieldset title="Thread 3">
-					<legend>description three</legend>
-
-					<label>Birthday:</label>
-					<select name="day">
-						<option></option>
-						<option>23</option>
-					</select>
-
-					<select>
-						<option>10</option>
-					</select>
-
-					<select>
-						<option>1984</option>
-					</select>
-
-					<label>Site:</label>
-					<input type="text" name="site" size="40" />
-				</fieldset>
-	
-				<input type="submit" class="finish" value="Finish!" />
+				<input type="submit" class="finish" value="Enviar" />
 			</form><br/>
+    </div>
+  </div>
+		
+
+		
 
 
   </body>
