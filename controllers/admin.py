@@ -18,7 +18,7 @@ def userList(status=None):
 	user = login.checkSession()
 	login.checkIsAdmin()
 	dbs = model.Session()
-	userList = dbs.query(model.User).all()
+	userList = dbs.query(model.User).filter(model.User.IsAdmin != True).all()
 	dbs.close()
 	
 	return template('admin_includes/userList', content=userList, stats=status, user=user)

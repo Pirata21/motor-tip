@@ -5,7 +5,7 @@ import model
 import json
 import pdb
 import hashlib, uuid
-from sqlalchemy import desc
+from sqlalchemy import desc, and_
 from datetime import datetime, date
 
 
@@ -13,7 +13,14 @@ from datetime import datetime, date
 # Default Page
 @route('/')
 def home():
-	return '<a href="/login">Entrar</a>'
+	dbs = model.Session()
+	latestLeads = dbs.query(model.Lead).order_by(model.Lead.Date.desc())[0:5]
+	ret = ''
+	for l in latestLeads:
+		firstword = str(l.Name).split(' ',1)
+		sol = l.Type or l.Brand
+		ret += '<li>'+str(firstword[0]) + ' solicito un '+ sol +'</li>'
+	return ret
 
 	
 # User()
@@ -26,8 +33,16 @@ def userHome():
 
 # Form Lead
 #
-@get('/lead/')
-@get('/lead')
+@get('/precio/')
+@get('/precio')
+def lead():
+	return template('public_site/form2')
+
+
+# Form Lead
+#
+@get('/modelo/')
+@get('/modelo')
 def lead():
 	return template('public_site/form')
 
@@ -156,7 +171,14 @@ def save():
 	dbs.add(Lead)
 	dbs.commit()
 	dbs.close()
-	redirect('/leads')
+	redirect('/confirmacion')
+
+
+@route('/confirmacion')
+def confirmacion():
+	
+	return 'confirmacion'
+
 
 @route('/leads')
 @route('/leads/<filter>')
@@ -235,15 +257,30 @@ def leadList(filter=''):
 	#ORDER BY
 	if sortorder == 'asc':	
 		if query :
-			leadList = dbs.query(model.Lead).order_by(sortname.asc()).filter(qtype.like('%'+query+'%'))
-		else:
-			leadList = dbs.query(model.Lead).order_by(sortname.asc())
-	else:
-		if query :
-			leadList = dbs.query(model.Lead).order_by(sortname.desc()).filter(qtype.like('%'+query+'%'))
+			
+			if filter=='my':
+				leadList = dbs.query(model.Lead).order_by(sortname.asc()).filter(and_(model.Lead.Users.any(Id=user.Id)),(qtype.like('%'+query+'%')))
+			else:
+				leadList = dbs.query(model.Lead).order_by(sortname.asc()).filter(qtype.like('%'+query+'%'))
+			
+			
 		else:
 			if filter=='my':
-				leadList = dbs.query(model.Lead).order_by(sortname.desc()).filter(model.Lead.Id == 25)
+				leadList = dbs.query(model.Lead).order_by(sortname.asc()).filter(model.Lead.Users.any(Id=user.Id))
+			else:
+				leadList = dbs.query(model.Lead).order_by(sortname.asc())
+			
+	else:
+		if query :
+			
+			if filter=='my':
+				leadList = dbs.query(model.Lead).order_by(sortname.desc()).filter(and_(model.Lead.Users.any(Id=user.Id)),(qtype.like('%'+query+'%')))
+			else:
+				leadList = dbs.query(model.Lead).order_by(sortname.desc()).filter(qtype.like('%'+query+'%'))
+			
+		else:
+			if filter=='my':
+				leadList = dbs.query(model.Lead).order_by(sortname.desc()).filter(model.Lead.Users.any(Id=user.Id))
 			else:
 				leadList = dbs.query(model.Lead).order_by(sortname.desc())
 	
